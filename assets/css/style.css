@@ -1,0 +1,65 @@
+body {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 18px;
+    line-height: 34px;
+    background-color: #e68d29;
+  }
+  
+  
+  /*general*/
+  
+  .container {
+    clear: both;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 960px;
+  }
+  
+  h1,
+  h2,
+  h3 {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: 700;
+  }
+  
+  h1 {
+    padding-bottom: 20px;
+    padding-left:20px;
+    font-size: 30px;
+    line-height: 49px;
+    color: #af8e48;
+  }
+  
+  h2,
+  h3 {
+    font-size: 22px;
+  }
+  
+  
+  /*header*/
+  .cont1 {
+    padding:0;
+    margin:0;
+  }
+  
+  #banner {
+    height: 200px;
+    width:100%;
+  }
+  
+
+  
+  
+  
+  .cont2 {
+    margin-top:40px;
+    padding:40px;
+    float: left;
+  }
+  
+
+  
+  
+  
+
+  
