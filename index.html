@@ -4,32 +4,41 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Psychic Game</title>
-  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-	<script type="text/javascript" src="assets/javascript/game.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	
 </head>
 <body onkeypress="keyPress(event)">
-	<header id=banner>
-		<div class="cont1">
+
+	<div class="container">
+			<header id=banner>
+					<div class="cont1">
+						<h2>The Psychic Game</h2>
+						<img src="https://cdn.britannica.com/16/170816-131-2ACECB22.jpg" class="img-fluid" alt="Responsive image">
+					</div>
+				</header>
+
+				<div id="game" class="cont2">
+					<p><h1 id="game-over">GameOver</h1></p>
+					<p><button type="button" id="startAgain" onclick="resetGame()" class="btn btn-light">Start Again!</button></p>
+					<p>Guess what letter I'm thinking of</p>
+					<p>Wins: <span id="wins-so-far"></span></p>
+					<p>Losses: <span id="losses-so-far"></span></p>
+					<p>Guesses left: <span id="guesses-left"></span></p>
+					<p>Your guesses so far:<span id="guess-so-far"></span> </p>
+				</div>
 			
-			<h2>The Psychic Game</h2>
-		</div>
-	</header>
-
-	<div id="game" class="cont2">
-		<p>Guess what letter I'm thinking of</p>
-		<p>Wins: 0</p>
-    <p>Losses: 0</p>
-    <p>Guesses left: 9</p>
-    <p id="guess-so-far">Your guesses so far: </p>
+				<div class="cont2">
+				
+				</div>
+			
+				 <footer>
+				
+				</footer>
 	</div>
 
-	<div class="cont2">
 	
-	</div>
-
-	 <footer>
-  
-  </footer>
-
+	<script type="text/javascript" src="assets/javascript/game.js"></script>
 </body>
 </html>

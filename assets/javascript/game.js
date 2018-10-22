@@ -1,57 +1,101 @@
 //Array of possible computer choices
-var computerChoices = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-
-
-//Variables for tracking players wins, losses, & guesses left
-var wins = 0;
-var losses = 0;
-var guessesLeft = 9;
-var lettersGuessed = [];
-let compGuess = computerChoices[Math.floor(Math.random()*computerChoices.length)];
-console.log(computerChoices[17]);
-
-
-
-//Game
-function keyPress(event) {
-    //let compGuess = computerChoices[Math.floor(Math.random()*computerChoices.length)];
+var computerChoices = [
+    "a",
+    "b",
+    "c",
+    "d",
+    "e",
+    "f",
+    "g",
+    "h",
+    "i",
+    "j",
+    "k",
+    "l",
+    "m",
+    "n",
+    "o",
+    "p",
+    "q",
+    "r",
+    "s",
+    "t",
+    "u",
+    "v",
+    "w",
+    "x",
+    "y",
+    "z"
+  ];
+  
+  //Variables for tracking players wins, losses, & guesses left
+  var wins = 0;
+  var losses = 0;
+  var guessesLeft = 9;
+  var lettersGuessed = [];
+  let compGuess =
+    computerChoices[Math.floor(Math.random() * computerChoices.length)];
+  var total=0;
+  //Game
+  
+  printOnScreen();
+  
+  function keyPress(event) {
     var playerGuess = event.key;
-    console.log(playerGuess);
-    console.log(compGuess);
-    if ((playerGuess === compGuess) && (guessesLeft > 0)) {
-        wins++;
-        guessesLeft = 9;
-        lettersGuessed.length = 0;
-        compGuess.length = 0;
-        console.log("you win!");
+    compGuess =
+      computerChoices[Math.floor(Math.random() * computerChoices.length)];
+  
+    lettersGuessed.push(playerGuess);
+  
+    if (playerGuess == compGuess && guessesLeft > 0) {
+      wins++;
+      total++;
+      resetRound();
+      alert("You win!");
+    } else if (playerGuess != compGuess && guessesLeft > 0) {
+      guessesLeft--;
+    } else {
+      alert("You lost!");
+      losses++;
+      total++;
+      resetRound();
     }
-    else if ((playerGuess != compGuess) && (guessesLeft > 0)) {
-        guessesLeft--;
+    printOnScreen();
+  
+    if (total === 2){
+        var userPlayAgain = confirm("Game Over! Do you want to play Again?");
+        if (userPlayAgain === true){
+              resetGame();
+              printOnScreen();
+        }
+        else {
+            document.getElementById("game-over").style.display='block';
+            document.getElementById("startAgain").style.display='block';
+            //printOnScreen();
+        }
     }
-
-    else {
-        losses++;
-        guessesLeft = 9;
-        lettersGuessed.length = 0;
-        // compGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
-        console.log("you lost!");
-    }
-
-    let guessesSoFarArray = document.getElementById("guess-so-far");
-    guessesSoFarArray.innerHTML = "Hello";
-}
-
-
-	// lettersGuessed.push(playerGuess);
-	// console.log(computerGuess[0]);
-
-
-      
-
-    //     var html = "<p>Guess what letter I'm thinking of</p>" +
-    //             "<p>Wins: " + wins + "</p>" +
-    //             "<p>Losses: " + losses + "</p>" +
-    //             "<p>Guesses left: " + guessesLeft + "</p>" +
-    //             "<p>Your guesses so far: " + lettersGuessed + "</p>";
-        
-    //     document.querySelector("#game").innerHTML = html;
+  
+  }
+  
+  function resetGame(){
+      resetRound();
+      wins = 0;
+      losses = 0;
+      total = 0;
+      printOnScreen();
+  }
+  
+  function resetRound() {
+    lettersGuessed = [];
+    guessesLeft = 8;
+  }
+  
+  
+  function printOnScreen(gameOver) {
+    document.getElementById("startAgain").style.display='none';
+    document.getElementById("game-over").style.display='none';
+    document.getElementById("guess-so-far").innerHTML = lettersGuessed;
+    document.getElementById("wins-so-far").innerHTML = wins;
+    document.getElementById("losses-so-far").innerHTML = losses;
+    document.getElementById("guesses-left").innerHTML = guessesLeft+1;
+  }
